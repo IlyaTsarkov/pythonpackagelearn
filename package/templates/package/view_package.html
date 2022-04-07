@@ -1,0 +1,15 @@
+{% extends 'package/index.html' %}
+
+{% block title %}{{ package.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ package.title }}</h1>
+    <h4>{{ package.created }}</h4>
+    <h3>Описание</h3>
+    <p>{% if package.description %}{{ package.description }}{% else %}Тут пока ничего нет...{% endif %}</p>
+    {% if package.url %}<b><a href="{{ package.url }}" target="_blank">Ссылка на документацию</a></b>{% endif %}
+    <div><form method="POST" action="{% url 'editpackage' package.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Редактировать</button>
+    </form></div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'package/index.html' %}
+
+{% block title %}{{ package.title }}{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <h2>Редактирование записи - {{ package.title }}</h2>
+    <p>Изменить название<br> {{ form.title }}<br>
+    Изменить описание<br> {{ form.description }}<br>
+    Изменить ссылку<br> {{ form.url }}</p>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+<form method="POST" action="{% url 'personal_cabinet' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Вернуться без изменений</button>
+</form>
+<form method="POST" action="{% url 'deletepackage' package.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Удалить</button>
+</form>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'package/index.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+    <h1 class="h1">Личный кабинет</h1>
+    <h2>Что я хочу выучить</h2>
+    {% for package in packages %}
+    <div class="what_learn">
+        <a href="{% url 'currentpackage' package.id %}" class="what_learn_link"><b>{{ package.title }}</b><br></a>
+    </div>
+    {% endfor %}
+{% endblock %}
+

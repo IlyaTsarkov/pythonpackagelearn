@@ -1,0 +1,18 @@
+{% extends 'package/index.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <div class="loginuser">
+    <h1>Создать аккаунт</h1>
+    <h2>{{ error }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        Введите имя <br> {{ registerform.username }}<br>
+        Введите пароль <br> {{ registerform.password1 }}<br>
+        Подтвердите пароль <br> {{ registerform.password2 }}<br><br>
+        <button type="submit" class="btn btn-success">Регистрация</button>
+    </form>
+    </div>
+{% endblock %}
+
