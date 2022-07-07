@@ -13,10 +13,11 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-danger exit">Выйти</button>
     <div class="top">
-    <h1 class="logo">PyPaLearn</h1>
-    <button class="btn btn-light"><a href="{% url 'createnewpackage' %}" class="link">Создать новую запись</a></button>
-        <button class="btn btn-light"><a href="{% url 'personal_cabinet' %}" class="link">Личный кабинет</a></button>
-    </form></div>
+        <h1 class="logo">PyPaLearn</h1>
+        <button class="btn btn-light"><a href="{% url 'createnewpackage' %}" class="link">Создать новую запись</a></button>
+            <button class="btn btn-light"><a href="{% url 'personal_cabinet' %}" class="link">Личный кабинет</a></button>
+        </div>
+    </form>
     {% else %}
     <div class="register">
     <button class="btn btn-success"><a href="{% url 'signupuser' %}" class="link">Зарегистрироваться</a></button>
